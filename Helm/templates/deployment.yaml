@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: nginx
-    tag: {{ .Values.image.tag }}
+    tag: alpine
   name: nginx-alpine
   namespace: {{ .Values.namespace.name }}
 spec:
@@ -24,6 +24,9 @@ spec:
         tag: {{ .Values.image.tag }}
     spec:
       containers:
-      - image: {{ .Values.image.repository }}
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.PullPolicy }}
         name: nginx-alpine
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+        
