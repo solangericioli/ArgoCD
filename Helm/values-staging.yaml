@@ -1,8 +1,8 @@
 namespace:
   name: staging
 service:
-  type: ClusterIP
   port: 8111
+  type: ClusterIP
 
 image:
   repository: nginx
