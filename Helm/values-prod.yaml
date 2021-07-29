@@ -2,8 +2,8 @@ namespace:
   name: prod
 
 service:
-  type: ClusterIP
   port: 80
+  type: ClusterIP
 
 image:
   repository: nginx
